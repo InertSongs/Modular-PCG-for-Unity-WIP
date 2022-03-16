@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3379171725514053426}
   - component: {fileID: -4837371123649297825}
-  - component: {fileID: -4647514771130325145}
+  - component: {fileID: -6180697348321838507}
   m_Layer: 0
   m_Name: Room
   m_TagString: Untagged
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tile: {fileID: 8594323768784368850, guid: 222ff4d6fa84900408ec80b14567a9a0, type: 3}
---- !u!114 &-4647514771130325145
+--- !u!114 &-6180697348321838507
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

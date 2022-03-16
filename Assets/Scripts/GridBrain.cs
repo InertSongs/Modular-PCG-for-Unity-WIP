@@ -20,12 +20,15 @@ public class GridBrain : MonoBehaviour
             {
                 GameObject created = Instantiate(tile, new Vector3(ih, 0, iw), tile.transform.rotation);
                 grid.Add(created);
-                if (ih != xOrigin && ih != xOrigin+height - 1 && iw != zOrigin && iw != zOrigin + width - 1)
+                if (ih != xOrigin && ih != xOrigin+height-1 && iw != zOrigin && iw != zOrigin + width-1)
                 {
                     interiorCells.Add(created);
                 }
             }
         }
-        gameObject.GetComponent<WallBrain>().BuildWalls(new Vector3(xOrigin+height - 1, 0, zOrigin + width - 1) / 2, grid.Except(interiorCells).ToList());
+        List<GameObject> border = grid.Except(interiorCells).ToList();
+        Vector3 center = new Vector3(height - 1, 0,width - 1)/2;
+        gameObject.GetComponent<WallBrain>().BuildWalls(border, center, origin);
     }
+    
 }
