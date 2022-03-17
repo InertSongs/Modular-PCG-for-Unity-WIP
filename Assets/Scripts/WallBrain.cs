@@ -6,6 +6,8 @@ public class WallBrain : MonoBehaviour
 {
     [SerializeField] GameObject tile;
     List<GameObject> wallBase = new List<GameObject>();
+    int wallHeight = 4;
+    Vector3 offsetVector = new Vector3(0, 1, 0);
     float offset = 0.5f;
     public void BuildWalls(List<GameObject> border, Vector3 center, Vector3 origin)
     {
@@ -22,7 +24,13 @@ public class WallBrain : MonoBehaviour
                 wallBase.Add(Instantiate(tile, new Vector3(celPos.x , offset, celPos.z + Mathf.Sign(relPos.z) * offset), Quaternion.Euler(new Vector3(90 * -Mathf.Sign(relPos.z),0, 0))));
             }
         }
-        
+        for(int i = 0;i<=wallHeight;i++)
+        {
+            foreach(GameObject baseWall in wallBase)
+            {
+                Instantiate(tile, baseWall.transform.position + offsetVector * i, baseWall.transform.rotation);
+            }
+        }
     }
     
 }
